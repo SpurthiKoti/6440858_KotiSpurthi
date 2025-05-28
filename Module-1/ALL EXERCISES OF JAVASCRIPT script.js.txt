@@ -1,16 +1,19 @@
-//Exercise 1
 // main.js
+
+// Exercise 1
 console.log("Welcome to the Community Portal");
 window.onload = function () {
   alert("Page is fully loaded!");
 };
-//Exercise 2
+
+// Exercise 2
 const eventName = "Community Cleanup";
 const eventDate = "2025-06-15";
 let seatsAvailable = 50;
 console.log(`${eventName} is scheduled for ${eventDate}. Seats left: ${seatsAvailable}`);
 seatsAvailable--;
-//Exercise 3
+
+// Exercise 3
 const events = [
   { name: "Music Night", date: "2025-06-20", seats: 10 },
   { name: "Past Event", date: "2024-06-01", seats: 0 }
@@ -25,7 +28,6 @@ events.forEach(event => {
   }
 });
 try {
-  // simulate registration
   let selectedEvent = events[0];
   if (selectedEvent.seats <= 0) throw "No seats available!";
   selectedEvent.seats--;
@@ -33,7 +35,8 @@ try {
 } catch (err) {
   console.error("Registration failed:", err);
 }
-//Exercise 4
+
+// Exercise 4
 function addEvent(name, category) {
   return { name, category };
 }
@@ -43,7 +46,6 @@ function registerUser(user, event) {
 function filterEventsByCategory(events, category) {
   return events.filter(e => e.category === category);
 }
-// Closure
 function createCategoryTracker() {
   let count = 0;
   return function () {
@@ -52,9 +54,10 @@ function createCategoryTracker() {
   };
 }
 const trackMusic = createCategoryTracker();
-console.log(trackMusic()); // 1
-console.log(trackMusic()); // 2
-//exercise 5
+console.log(trackMusic());
+console.log(trackMusic());
+
+// Exercise 5
 function Event(name, seats) {
   this.name = name;
   this.seats = seats;
@@ -63,9 +66,10 @@ Event.prototype.checkAvailability = function () {
   return this.seats > 0;
 };
 const musicEvent = new Event("Jazz Night", 20);
-console.log(Object.entries(musicEvent)); // [['name', 'Jazz Night'], ['seats', 20]]
+console.log(Object.entries(musicEvent));
 console.log(musicEvent.checkAvailability());
-//Exercise 6
+
+// Exercise 6
 let allEvents = [
   { name: "Yoga", type: "health" },
   { name: "Rock Concert", type: "music" }
@@ -74,7 +78,8 @@ allEvents.push({ name: "Jazz", type: "music" });
 let musicEvents = allEvents.filter(e => e.type === "music");
 let cards = allEvents.map(e => `Event: ${e.name.toUpperCase()}`);
 console.log(cards);
-//Exercise 7
+
+// Exercise 7
 const eventList = document.querySelector("#eventList");
 function renderEvent(event) {
   const div = document.createElement("div");
@@ -82,7 +87,8 @@ function renderEvent(event) {
   div.textContent = `${event.name} - ${event.date}`;
   eventList.appendChild(div);
 }
-//Exercise 8
+
+// Exercise 8
 document.getElementById("registerBtn").onclick = function () {
   alert("You registered!");
 };
@@ -94,13 +100,13 @@ document.getElementById("searchInput").addEventListener("keydown", function (e) 
     console.log("Searching for:", e.target.value);
   }
 });
-//Exercise 9
-// Using Promises
+
+// Exercise 9
 fetch("https://mockapi.io/events")
   .then(res => res.json())
   .then(data => console.log("Events:", data))
   .catch(err => console.error(err));
-// Using async/await
+
 async function fetchEvents() {
   document.getElementById("loading").style.display = "block";
   try {
@@ -113,16 +119,18 @@ async function fetchEvents() {
     document.getElementById("loading").style.display = "none";
   }
 }
-//Exercise 10
-const events = [
+
+// Exercise 10
+const moreEvents = [
   { name: "Yoga", date: "2025-07-01", category: "health" }
 ];
 function logEvent({ name, date }) {
   console.log(`${name} on ${date}`);
 }
-const newList = [...events]; // Spread
-logEvent(events[0]);
-//Exercise 11
+const newList = [...moreEvents];
+logEvent(moreEvents[0]);
+
+// Exercise 11
 document.getElementById("regForm").addEventListener("submit", function (e) {
   e.preventDefault();
   const name = this.elements["name"].value;
@@ -134,7 +142,8 @@ document.getElementById("regForm").addEventListener("submit", function (e) {
   }
   console.log(`Registered ${name} for ${event}`);
 });
-//Exercise 12
+
+// Exercise 12
 function sendRegistration(data) {
   document.getElementById("status").textContent = "Submitting...";
   setTimeout(() => {
@@ -152,18 +161,18 @@ function sendRegistration(data) {
     });
   }, 2000);
 }
-//Exercise 13
+
+// Exercise 13
 console.log("Submitting form...");
 try {
   const payload = { name: "John", email: "john@mail.com" };
   console.log("Payload:", payload);
-  // simulate fetch
 } catch (err) {
   console.error("Error:", err);
 }
-//Exercise 14
-// jQuery example
-$('#registerBtn').click(function () {
+
+// Exercise 14
+$("#registerBtn").click(function () {
   alert("You clicked register!");
-  $('.eventCard').fadeOut().fadeIn();
+  $(".eventCard").fadeOut().fadeIn();
 });
