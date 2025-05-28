@@ -16,38 +16,43 @@ public class Calculator {
         double b = sc.nextDouble();
         System.out.print("Choose operation (+ - * /): ");
         char op = sc.next().charAt(0);
-        double result = 0;
+
+        double result;
         switch (op) {
             case '+': result = a + b; break;
             case '-': result = a - b; break;
             case '*': result = a * b; break;
-            case '/': result = b != 0 ? a / b : Double.NaN; break;
-            default: System.out.println("Invalid operator"); return;
+            case '/': result = (b != 0) ? a / b : Double.NaN; break;
+            default: System.out.println("Invalid operator."); sc.close(); return;
         }
+
         System.out.println("Result: " + result);
+        sc.close();
     }
 }
 
 // Exercise 3: Even or Odd Checker
 import java.util.Scanner;
-public class EvenOdd {
+public class EvenOddChecker {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter an integer: ");
         int num = sc.nextInt();
-        System.out.println(num % 2 == 0 ? "Even" : "Odd");
+        System.out.println((num % 2 == 0) ? "Even" : "Odd");
+        sc.close();
     }
 }
 
 // Exercise 4: Leap Year Checker
 import java.util.Scanner;
-public class LeapYear {
+public class LeapYearChecker {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a year: ");
         int year = sc.nextInt();
-        boolean leap = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
-        System.out.println(leap ? "Leap Year" : "Not a Leap Year");
+        boolean isLeap = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
+        System.out.println(isLeap ? "Leap Year" : "Not a Leap Year");
+        sc.close();
     }
 }
 
@@ -61,17 +66,19 @@ public class MultiplicationTable {
         for (int i = 1; i <= 10; i++) {
             System.out.println(num + " x " + i + " = " + (num * i));
         }
+        sc.close();
     }
 }
 
 // Exercise 6: Data Type Demonstration
-public class DataTypes {
+public class DataTypesDemo {
     public static void main(String[] args) {
         int i = 10;
         float f = 3.14f;
         double d = 3.14159;
         char c = 'A';
         boolean b = true;
+
         System.out.println("int: " + i);
         System.out.println("float: " + f);
         System.out.println("double: " + d);
@@ -81,13 +88,14 @@ public class DataTypes {
 }
 
 // Exercise 7: Type Casting
-public class TypeCasting {
+public class TypeCastingDemo {
     public static void main(String[] args) {
         double d = 9.99;
         int i = (int) d;
-        System.out.println("Double to int: " + i);
         int j = 7;
         double dj = j;
+
+        System.out.println("Double to int: " + i);
         System.out.println("Int to double: " + dj);
     }
 }
@@ -107,8 +115,12 @@ public class GradeCalculator {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter marks (0-100): ");
         int marks = sc.nextInt();
-        char grade = marks >= 90 ? 'A' : marks >= 80 ? 'B' : marks >= 70 ? 'C' : marks >= 60 ? 'D' : 'F';
+        char grade = (marks >= 90) ? 'A' :
+                     (marks >= 80) ? 'B' :
+                     (marks >= 70) ? 'C' :
+                     (marks >= 60) ? 'D' : 'F';
         System.out.println("Grade: " + grade);
+        sc.close();
     }
 }
 
@@ -118,7 +130,9 @@ public class NumberGuessingGame {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         Random rand = new Random();
-        int target = rand.nextInt(100) + 1, guess;
+        int target = rand.nextInt(100) + 1;
+        int guess;
+
         do {
             System.out.print("Guess the number (1-100): ");
             guess = sc.nextInt();
@@ -126,12 +140,14 @@ public class NumberGuessingGame {
             else if (guess > target) System.out.println("Too high");
             else System.out.println("Correct!");
         } while (guess != target);
+
+        sc.close();
     }
 }
 
 // Exercise 11: Factorial Calculator
 import java.util.Scanner;
-public class Factorial {
+public class FactorialCalculator {
     public static int factorial(int n) {
         return (n == 0) ? 1 : n * factorial(n - 1);
     }
@@ -140,6 +156,7 @@ public class Factorial {
         System.out.print("Enter a number: ");
         int num = sc.nextInt();
         System.out.println("Factorial: " + factorial(num));
+        sc.close();
     }
 }
 
@@ -173,6 +190,7 @@ public class FibonacciRecursive {
         System.out.print("Enter n: ");
         int n = sc.nextInt();
         System.out.println("Fibonacci: " + fibonacci(n));
+        sc.close();
     }
 }
 
@@ -185,42 +203,47 @@ public class ArraySumAverage {
         int n = sc.nextInt();
         int[] arr = new int[n];
         int sum = 0;
+
         for (int i = 0; i < n; i++) {
             System.out.print("Enter element " + (i + 1) + ": ");
             arr[i] = sc.nextInt();
             sum += arr[i];
         }
+
         double avg = (double) sum / n;
         System.out.println("Sum: " + sum + ", Average: " + avg);
+        sc.close();
     }
 }
 
 // Exercise 15: String Reversal
 import java.util.Scanner;
-public class ReverseString {
+public class StringReversal {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a string: ");
         String input = sc.nextLine();
         StringBuilder sb = new StringBuilder(input);
         System.out.println("Reversed: " + sb.reverse());
+        sc.close();
     }
 }
 
 // Exercise 16: Palindrome Checker
 import java.util.Scanner;
-public class PalindromeString {
+public class PalindromeChecker {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.print("Enter a string: ");
         String str = sc.nextLine().replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
         String rev = new StringBuilder(str).reverse().toString();
         System.out.println(str.equals(rev) ? "Palindrome" : "Not a Palindrome");
+        sc.close();
     }
 }
 
 // Exercise 17: Class and Object Creation
-class Car {
+public class Car {
     String make, model;
     int year;
     Car(String make, String model, int year) {
@@ -244,6 +267,7 @@ class Animal {
     }
 }
 class Dog extends Animal {
+    @Override
     void makeSound() {
         System.out.println("Bark");
     }
@@ -278,7 +302,7 @@ class Piano implements Playable {
 
 // Exercise 20: Try-Catch Example
 import java.util.Scanner;
-public class TryCatchExample {
+public class TryCatchDemo {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         try {
@@ -289,6 +313,8 @@ public class TryCatchExample {
             System.out.println("Result: " + (a / b));
         } catch (ArithmeticException e) {
             System.out.println("Cannot divide by zero.");
+        } finally {
+            sc.close();
         }
     }
 }
