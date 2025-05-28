@@ -1,200 +1,237 @@
-< ------ Exercise 1 ----- >
-
-HTML (index.html):
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
   <title>Community Event</title>
-  <!-- Embedded CSS -->
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Embedded CSS (includes Exercises 1–11) -->
   <style>
+    /* Google Font & Global Styles (Exercise 5) */
     body {
-      background-color: #f0f0f0;
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.6;
+      background-color: rgba(240, 240, 255, 0.9); /* Exercise 4 */
+      background-color: #eee; /* Fallback */
+      background-image: url('background.jpg');
+      background-size: cover;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Universal Reset (Exercise 3) */
+    * {
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Inline h1 also styled via external/embedded for fallback */
+    h1 {
+      color: #004488; /* Exercise 4 */
+    }
+
+    /* Section header with gradient background (Exercise 4) */
+    section h2 {
+      background: linear-gradient(to right, #6a11cb, #2575fc);
+      color: white;
+      padding: 10px;
+    }
+
+    /* Header styles (Exercises 1 & 3) */
+    #mainHeader {
+      font-size: 28px;
+      font-weight: bold;
+      color: navy;
+      margin-bottom: 10px;
+    }
+
+    /* h2 color (Exercise 3) */
+    h2 {
+      color: teal;
+    }
+
+    /* h3 and p (Grouping Selector - Exercise 3) */
+    h3, p {
+      font-family: Arial, sans-serif;
+      color: #333;
+    }
+
+    /* CTA Button (Exercise 2) */
+    .cta-button {
+      background-color: #007BFF;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    /* Event Card (Exercises 1, 3, 8) */
+    .eventCard {
+      background-color: #fff;
+      border: 1px solid #ddd;
+      margin: 20px;
+      padding: 15px;
+    }
+
+    /* Paragraph Styling (Exercise 5) */
+    p.description {
+      font-size: 1.1em;
+      text-align: justify;
+      letter-spacing: 0.5px;
+      text-transform: none;
+    }
+
+    /* Navigation (Exercise 6) */
+    nav ul {
+      display: flex;
+      justify-content: space-around;
+      list-style: none;
+      padding: 0;
+    }
+
+    nav li {
+      margin: 5px 0;
+    }
+
+    nav a:link {
+      color: #0077cc;
+    }
+
+    nav a:visited {
+      color: purple;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    nav a:active {
+      color: red;
+    }
+
+    /* Table Styling (Exercise 7) */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: center;
+    }
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+
+    /* Focus Outline for Input (Exercise 8) */
+    input:focus {
+      outline: 2px solid #007BFF;
+    }
+
+    /* Hidden/Display Control (Exercise 8) */
+    .hidden {
+      visibility: hidden;
+    }
+
+    .not-displayed {
+      display: none;
+    }
+
+    /* Multi-column layout (Exercise 9) */
+    .news-section {
+      column-count: 2;
+      column-gap: 30px;
+      column-rule: 1px solid gray;
+      margin-top: 20px;
+    }
+
+    /* Responsive Design (Exercise 10) */
+    @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        align-items: center;
+      }
+
+      img {
+        width: 100%;
+        height: auto;
+      }
+
+      body {
+        font-size: 14px;
+      }
+    }
+
+    /* Flexible Container (Exercise 10) */
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: auto;
     }
   </style>
-  <!-- External CSS -->
-  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1 style="color: red;">Welcome to Our Local Events!</h1> <!-- Inline style -->
+
+  <!-- Inline Style (Exercise 1) -->
+  <h1 style="color: red;">Welcome to Our Local Events!</h1>
+
   <h2 id="mainHeader">Upcoming Events</h2>
-  <div class="eventCard">...</div>
+
+  <!-- Navigation (Exercise 6 & 10) -->
+  <nav>
+    <ul>
+      <li><a href="#">Home</a></li>
+      <li><a href="#">Schedule</a></li>
+      <li><a href="#">Register</a></li>
+    </ul>
+  </nav>
+
+  <div class="container">
+
+    <!-- Event Cards (Exercises 1, 2, 3, 5, 8) -->
+    <div class="eventCard">
+      <h3>Music Festival</h3>
+      <p class="description">Join us for a night of live music and fun.</p>
+      <button class="cta-button">Register Now</button>
+    </div>
+
+    <div class="eventCard hidden">
+      <h3>Art Show</h3>
+      <p class="description">Experience stunning local artworks.</p>
+    </div>
+
+    <!-- Input Focus Styling (Exercise 8) -->
+    <input type="text" placeholder="Search events..." />
+
+    <!-- News Section (Exercise 9) -->
+    <div class="news-section">
+      <p>Our summer events are in full swing with community participation at an all-time high.</p>
+      <p>Volunteer signups are now open. Join us in making this event memorable!</p>
+    </div>
+
+    <!-- Table (Exercise 7) -->
+    <table>
+      <thead>
+        <tr><th>Event</th><th>Date</th><th>Location</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Music Festival</td><td>July 12</td><td>Park Grounds</td></tr>
+        <tr><td>Art Show</td><td>August 5</td><td>City Gallery</td></tr>
+      </tbody>
+    </table>
+
+  </div>
+
 </body>
 </html>
-External CSS (styles.css):
-/* Header styles */
-#mainHeader {
-  font-size: 24px;
-  color: navy;
-}
-/* Card styles */
-.eventCard {
-  border: 1px solid #ccc;
-  padding: 20px;
-  margin: 10px;
-  background-color: white;
-}
 
-< ----- Exercise 2 ----- >
-/* Style for main CTA button */
-.cta-button {
-  background-color: #007BFF;
-  color: white;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 5px;
-  font-size: 16px;
-}
-
-< ----- Exercise 3 ----- >
-/* Reset margin and padding */
-* {
-  margin: 0;
-  padding: 0;
-}
-/* Style all h2 elements */
-h2 {
-  color: teal;
-  margin-bottom: 10px;
-}
-/* ID selector */
-#mainHeader {
-  font-size: 28px;
-  font-weight: bold;
-}
-/* Class selector */
-.eventCard {
-  background-color: #fff;
-  border: 1px solid #ccc;
-  margin: 10px;
-  padding: 15px;
-}
-/* Grouping selector */
-h3, p {
-  font-family: Arial, sans-serif;
-  color: #333;
-}
-
-< ----- Exercise 4 ------ >
-/* Text color using HEX */
-h1 {
-  color: #004488;
-}
-/* Background using RGBA */
-body {
-  background-color: rgba(240, 240, 255, 0.9);
-}
-/* Background image with fallback */
-body {
-  background-color: #eee;
-  background-image: url('background.jpg');
-  background-size: cover;
-}
-/* Gradient on section headers */
-section h2 {
-  background: linear-gradient(to right, #6a11cb, #2575fc);
-  color: white;
-  padding: 10px;
-}
-
-< ----- exercise 5 ----- >
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-body {
-  font-family: 'Roboto', sans-serif;
-  line-height: 1.6;
-}
-p.description {
-  font-size: 1.1em;
-  text-align: justify;
-  letter-spacing: 0.5px;
-  text-transform: none;
-}
-
-< ----- Exercise 6 ----- >
-nav a:link {
-  color: #0077cc;
-}
-nav a:visited {
-  color: purple;
-}
-nav a:hover {
-  text-decoration: underline;
-}
-nav a:active {
-  color: red;
-}
-nav ul {
-  list-style: none;
-  padding: 0;
-}
-nav li {
-  margin: 5px 0;
-}
-
-< ----- Exercise 7 ----- >
-table {
-  width: 100%;
-  border-collapse: collapse;
-}
-th, td {
-  border: 1px solid #ccc;
-  padding: 10px;
-  text-align: center;
-}
-tr:nth-child(even) {
-  background-color: #f9f9f9;
-}
-
-< ----- Exercise 8 ----- >
-.eventCard {
-  border: 1px solid #ddd;
-  margin: 20px;
-  padding: 15px;
-}
-/* Outline example */
-input:focus {
-  outline: 2px solid #007BFF;
-}
-/* Visibility comparison */
-.hidden {
-  visibility: hidden;
-}
-.not-displayed {
-  display: none;
-}
-
-< ----- Exercise 9 ----- >
-.news-section {
-  column-count: 2;
-  column-gap: 30px;
-  column-rule: 1px solid gray;
-}
-
-< ----- Exercise 10 ----- >
-/* Base styles */
-nav ul {
-  display: flex;
-  justify-content: space-around;
-}
-/* Responsive styles */
-@media (max-width: 768px) {
-  nav ul {
-    flex-direction: column;
-    align-items: center;
-  }
-  img {
-    width: 100%;
-    height: auto;
-  }
-  body {
-    font-size: 14px;
-  }
-}
-/* Use flexible units */
-.container {
-  width: 90%;
-  max-width: 1200px;
-  margin: auto;
-}
 
 < ----- Exercise 11 ----- >
 /* Nothing required in code; use DevTools to: */
